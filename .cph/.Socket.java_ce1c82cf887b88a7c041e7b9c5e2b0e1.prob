@@ -1,0 +1,1 @@
+{"name":"Local: Socket","url":"d:\\Codeforces\\Socket.java","tests":[{"id":1722595023613,"input":"3 5 3\n3 1 2\n","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Socket.java","group":"local","local":true}

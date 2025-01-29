@@ -1,0 +1,1 @@
+{"name":"Local: DisjointSet","url":"d:\\Codeforces\\DisjointSet.java","tests":[{"id":1732785839841,"input":"100101110110\n5 19 8 7 6 15 4 3 2 1 10 8","output":"1 3\n2 2\n1 3\n1 1\n1 2\n1 1\n1 1\n2 2\n1 2\n1 1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\DisjointSet.java","group":"local","local":true}

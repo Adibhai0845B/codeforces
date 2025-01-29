@@ -1,0 +1,1 @@
+{"name":"Local: abjk","url":"d:\\Codeforces\\abjk.java","tests":[{"id":1723240144019,"input":"3 4 R\nG.B.\n.RR.\nTTT.\n","output":"2"},{"id":1723240523716,"input":"3 3 Z\n...\n.H.\n..Z\n","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\abjk.java","group":"local","local":true}

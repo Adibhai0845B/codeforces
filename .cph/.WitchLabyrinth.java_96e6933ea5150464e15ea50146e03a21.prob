@@ -1,0 +1,1 @@
+{"name":"Local: WitchLabyrinth","url":"d:\\Codeforces\\WitchLabyrinth.java","tests":[{"id":1732980465359,"input":"3\n3 3\nUUU\nL?R\nDDD\n2 3\n???\n???\n2 2\nD?\n?R\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\WitchLabyrinth.java","group":"local","local":true}

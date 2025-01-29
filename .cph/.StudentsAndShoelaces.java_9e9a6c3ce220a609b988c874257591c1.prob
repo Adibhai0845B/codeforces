@@ -1,0 +1,1 @@
+{"name":"Local: StudentsAndShoelaces","url":"d:\\Codeforces\\StudentsAndShoelaces.java","tests":[{"id":1731690322053,"input":"6 5\n1 4\n2 4\n3 4\n5 4\n6 4\n","output":"1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\StudentsAndShoelaces.java","group":"local","local":true}

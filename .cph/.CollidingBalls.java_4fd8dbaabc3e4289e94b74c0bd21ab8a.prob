@@ -1,0 +1,1 @@
+{"name":"Local: CollidingBalls","url":"d:\\Codeforces\\CollidingBalls.java","tests":[{"id":1731588540806,"input":"3 3\n1 2\n2 3\n3 1\n","output":"1110011110\n0011\n0110001100101011\n10\n0000111\n1111\n000\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\CollidingBalls.java","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Construct","url":"d:\\Codeforces\\Construct.java","tests":[{"id":1732967848105,"input":"3\n5 1 1\n10101\n5 2 1\n10101\n6 3 2\n000000\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Construct.java","group":"local","local":true}

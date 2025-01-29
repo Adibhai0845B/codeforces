@@ -1,0 +1,1 @@
+{"name":"Local: MFind","url":"d:\\Codeforces\\MFind.java","tests":[{"id":1728194958574,"input":"3\n6 3\n1 1 1 1 1 1\n6 2\n1 3 4 1 0 2\n4 5\n2 5 10 3\n","output":"6\n4\n5\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\MFind.java","group":"local","local":true}

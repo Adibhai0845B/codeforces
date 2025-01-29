@@ -1,0 +1,1 @@
+{"name":"Local: NewGame","url":"d:\\Codeforces\\NewGame.java","tests":[{"id":1729259740436,"input":"4\n1 1\n5\n5 1\n10 11 10 11 10\n9 3\n4 5 4 4 6 5 4 4 6\n3 2\n1 3 1\n","output":"6\n3\n9\n2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\NewGame.java","group":"local","local":true}

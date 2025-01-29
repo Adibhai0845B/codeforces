@@ -1,0 +1,1 @@
+{"name":"Local: BfsBipartite","url":"d:\\Codeforces\\BfsBipartite.java","tests":[{"id":1736148267481,"input":"4\n2\n0 1 \n1 2\n2 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\BfsBipartite.java","group":"local","local":true}

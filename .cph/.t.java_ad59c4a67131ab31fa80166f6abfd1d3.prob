@@ -1,0 +1,1 @@
+{"name":"Local: t","url":"d:\\Codeforces\\t.java","tests":[{"id":1728983693793,"input":"3\nGARAGE\nGARAGEFORSALE\nABCDE\nAABCD\nTRAINING\nDRAINING\n","output":"14\n10\n16\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\t.java","group":"local","local":true}

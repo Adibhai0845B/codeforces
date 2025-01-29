@@ -1,0 +1,1 @@
+{"name":"Local: Main","url":"d:\\Codeforces\\Main.java","tests":[{"id":1731761937269,"input":"great10\n","output":"YES\nNO\nYES\nNO\n"},{"id":1732115074293,"input":"aaaaaaaabb\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Main.java","group":"local","local":true}

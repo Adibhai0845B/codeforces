@@ -1,0 +1,1 @@
+{"name":"Local: LongestSequence","url":"d:\\Codeforces\\LongestSequence.java","tests":[{"id":1721055186755,"input":"4\n1\n3\n14\n23\n","output":"1\n1\n3\n1 2 3\n4\n4 10 12 14\n5\n7 18 21 22 23"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\LongestSequence.java","group":"local","local":true}

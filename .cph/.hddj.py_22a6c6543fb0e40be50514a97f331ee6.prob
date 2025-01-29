@@ -1,0 +1,1 @@
+{"name":"Local: hddj","url":"d:\\Codeforces\\hddj.py","tests":[{"id":1730997273883,"input":"3\n-50 20 30\n","output":"30"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\hddj.py","group":"local","local":true}

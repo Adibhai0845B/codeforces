@@ -1,0 +1,1 @@
+{"name":"Local: Decarese","url":"d:\\Codeforces\\Decarese.java","tests":[{"id":1722490827394,"input":"4\ncab\n6\nabcd\n9\nssu\n5\nwygnotgsno\n43\n","output":"abss"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Decarese.java","group":"local","local":true}

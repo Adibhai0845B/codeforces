@@ -1,0 +1,1 @@
+{"name":"Local: BitwiseAndSolution","url":"d:\\Codeforces\\BitwiseAndSolution.java","tests":[{"id":1731231836109,"input":"2\n10\n1 2 3 4 5 6 7 8 9 10\n5\n2 4 3 5 6\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\BitwiseAndSolution.java","group":"local","local":true}
