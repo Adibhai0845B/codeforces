@@ -28,44 +28,36 @@ public class Codechef{
         sc.close();
     }
     static void functi1(FastInput sc) throws IOException{ 
-        int n = sc.nextInt();   int p = sc.nextInt();
-     int[] a = new int[n];
-          int[] arr1 = new int[n];
-                 PriorityQueue<Pair> aru = new PriorityQueue<>(Comparator.comparingInt(ayt -> a[0]));
-                 Arrays.fill(arr1, -1);
-                 for (int i = 0; i < n; i++) {
-                    a[i] = sc.nextInt();
-                    if (a[i] == 0) {
-                        arr1[i] = 0;
-                        aru.add(new Pair(0,i));
-                    }
-                }
-                while (!aru.isEmpty()) {
-                   Pair see = aru.poll();
-                    int ht = see.first;
-              int i = see.second;  if (arr1[i] != ht) continue;
-  for (int uyr : new int[]{i - 1, i + 1}) {if (uyr < 0 || uyr >= n) continue;
-        int count2 = (a[uyr] + p - 1) / p;  int cd = Math.max(ht, count2);
-     if (arr1[uyr] == -1 || cd < arr1[uyr]) {
-         arr1[uyr] = cd;
-  aru.add(new Pair(cd, uyr));
+          int n = sc.nextInt();
+          int k = sc.nextInt();
+         int a[][] = new int[n][n];
+         int i =0;
+         int j =0;
+         int row []= new int[n];
+         int col [] = new int[n];
+         while(k-->0){
+              if(a[i][j]==1) j++;
+              row[i]++;
+              col[j]++;  
+            a[i][j] = 1;
+              i++;
+              j++;
+              i=i%n;
+              j=j%n;
+          }
+          Arrays.sort(row);
+          Arrays.sort(col);
+          int diff = row[n-1]-row[0];
+          diff *=diff;
+         int diff2 = col[n-1]-col[0];
+         diff2 *=diff2;
+         System.out.println(diff+diff2);
+          for(int l =0;l<n;l++){
+       for(int hh=0;hh<n;hh++){
+             System.out.print(a[l][hh]+" ");
        }
-      }
-  }
-    for (int i = 0; i < n; i++) {
-     if (a[i] == 0) {
-     if (i + 1 < n) {
-        System.out.print("0 ");
-       } else{       System.out.println("0");
-                        }
-                    } else {
-                 if (i + 1 < n) {
-              System.out.print(arr1[i] + " ");
-                   } else { 
-   System.out.println(arr1[i]);
-             }
-      }
-}        
+       System.out.println();
+          }
   }
      public static BigInteger factorial(int n) {
         if (n < 0) {
