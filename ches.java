@@ -1,50 +1,59 @@
-import java.util.Scanner;
-public class ches {
-    static long guys;
-    static boolean check(long[] arr, long[] brr, long pl) {
-        long po = 0;
+import java.util.*;
 
-        for (int i = 0; i < arr.length; i++) {
-            long curDmg = ((pl / brr[i]) + 1) * arr[i];
-            po += curDmg;
-            if (po >= guys) return true;
+class ches {
+    private int V; 
+    private List<List<Integer>> adj;
+
+    public ches(int V) {
+        this.V = V;
+        adj = new ArrayList<>(V);
+        for (int i = 0; i < V; i++) {
+            adj.add(new ArrayList<>());
         }
-        return po >= guys;
     }
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
 
-        while (t-- > 0){
-        long h = scanner.nextLong();
-        long n = scanner.nextLong();
-        guys = h;
-        long[] arr1 = new long[(int) n];
-        long[] arr2 = new long[(int) n];
-        for (int i = 0; i < n; i++) {
-            arr1[i] = scanner.nextLong();
-        }
-        for (int i = 0; i < n; i++) {
-            arr2[i] = scanner.nextLong();
-        }
-
-        long aa = 0;
-        long pl = (long) 1e12;
-
-        while (pl - aa > 1) {
-            long ans = (aa + pl) / 2;
-            if (check(arr1, arr2, ans)) {
-                pl = ans;
-            } else {
-                aa = ans;
+    public void addEdge(int u, int v) {
+        adj.get(u).add(v);
+        adj.get(v).add(u); 
+    }
+    private boolean isCyclicUtil(int v, boolean[] visited, int parent) {
+        visited[v] = true;
+        for (int neighbor : adj.get(v)) {
+            if (!visited[neighbor]) { 
+                if (isCyclicUtil(neighbor, visited, v)) {
+                    return true;
+                }
+            } else if (neighbor != parent) { 
+                return true; 
             }
         }
-        if (check(arr1, arr2, aa)) {
-            System.out.println(aa + 1);
-        }
-        else{
-        System.out.println(pl + 1);
-        }    
+        return false;
     }
+    public boolean isCyclic() {
+        boolean[] visited = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            if (!visited[i]) {
+                if (isCyclicUtil(i, visited, -1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+       
+        ches graph = new ches(n);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+        graph.addEdge(4, 1); // This edge creates a cycle
+        
+        if (graph.isCyclic()) {
+            System.out.println("Graph contains a cycle");
+        } else {
+            System.out.println("Graph does not contain a cycle");
+        }
     }
 }

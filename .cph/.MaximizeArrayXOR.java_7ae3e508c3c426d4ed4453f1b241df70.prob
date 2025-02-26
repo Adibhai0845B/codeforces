@@ -1,0 +1,1 @@
+{"name":"Local: MaximizeArrayXOR","url":"d:\\Codeforces\\MaximizeArrayXOR.java","tests":[{"id":1738339270959,"input":"2\n5\n1 2 3 4 5\n3\n5 9 14\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\MaximizeArrayXOR.java","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Md","url":"d:\\Codeforces\\Md.java","tests":[{"id":1738338516532,"input":"2\n5 3\nabcde\nabc\n5 2\nabcbb\n-b\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Md.java","group":"local","local":true}
