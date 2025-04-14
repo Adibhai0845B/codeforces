@@ -1,0 +1,1 @@
+{"name":"Local: dsu","url":"d:\\Codeforces\\dsu.java","tests":[{"id":1742471684624,"input":"7\n1 2\n2 3\n3 1\n4 5\n5 6\n6 7\n","output":""},{"id":1742471687462,"input":"2\n1 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\dsu.java","group":"local","local":true}

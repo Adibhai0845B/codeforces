@@ -1,0 +1,1 @@
+{"name":"Local: PathQueries","url":"d:\\Codeforces\\PathQueries.java","tests":[{"id":1741602231430,"input":"1 2\n1 2\n","output":""},{"id":1741603435161,"input":"3 3\n1 2 1\n2 3 2\n1 3 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\PathQueries.java","group":"local","local":true}

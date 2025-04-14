@@ -1,39 +1,39 @@
 import java.util.*;
-public class Chess{
+public  class Chess{
+    static int n;
+   static int m;
+   static  ArrayList<ArrayList<Integer>>a1 = new ArrayList<>();
+ static boolean vis[] ;
+ static boolean cycle = true;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        while(t>0){
-            t--;
-            int p1 = sc.nextInt();
-            int p2 = sc.nextInt();
-            int p3 = sc.nextInt();
-             int count =0;
-            if(p1%2!=0){
-                count++;
-            }
-            if(p2%2!=0){
-                count++;
-            }
-            if(p3%2!=0){
-                count++;
-            }
-            if(count==3||count==1){
-                System.out.println("-1");
-            }
-            else{
-                int sum =0;
-                if(p1+p2>p3){
-                    int c = (p1+p2-p3)/2;
-                    System.out.println(p3+(c));    
-                }
-                else if(p1+p2==p3){
-                System.out.println(p3);
-            }
-            else{
-                System.out.println(p1+p2);
-            }
+     n = sc.nextInt();
+     m = sc.nextInt();
+     for(int i =0;i<n;i++) a1.add(new ArrayList<>());
+     for(int i =0;i<m;i++){
+        int u = sc.nextInt()-1;
+        int v = sc.nextInt()-1;
+        a1.get(u).add(v);
+        a1.get(v).add(u);
+     }
+      int ans =0;
+        vis =new boolean[n];
+      for(int i =0;i<n;i++){
+        if(!vis[i]){
+            cycle = true;
+            dfs(i);
+            if(cycle) ans++;;
         }
+      }
+      System.out.println(ans);
+    }
+    public static void dfs(int node){
+        vis[node] =true;
+        if(a1.get(node).size()!=2)cycle=false;
+        for(int ne:a1.get(node)){
+           if(!vis[ne]){
+            dfs(ne);
+           }
         }
     }
 }

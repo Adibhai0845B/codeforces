@@ -1,0 +1,1 @@
+{"name":"Local: MahmoudDictionary","url":"d:\\Codeforces\\MahmoudDictionary.java","tests":[{"id":1742555750532,"input":"3 3 4\nhate love like\n1 love like\n2 love hate\n1 hate like\nlove like\nlove hate\nlike hate\nhate like\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\MahmoudDictionary.java","group":"local","local":true}

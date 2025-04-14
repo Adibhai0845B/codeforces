@@ -1,0 +1,1 @@
+{"name":"Local: SegmentTreeSum","url":"d:\\Codeforces\\SegmentTreeSum.java","tests":[{"id":1743224396701,"input":"5 5\n5 4 2 3 5\n2 0 3\n1 1 1\n2 0 3\n1 3 1\n2 0 5\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\SegmentTreeSum.java","group":"local","local":true}

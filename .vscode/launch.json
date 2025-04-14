@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Circullarll",
+            "request": "launch",
+            "mainClass": "Circullarll",
+            "projectName": "Codeforces_cf197a6e"
+        },
+        {
+            "type": "java",
+            "name": "TreeColouringEasy",
+            "request": "launch",
+            "mainClass": "TreeColouringEasy",
+            "projectName": "Codeforces_cf197a6e"
+        },
+        {
+            "type": "java",
             "name": "Mplusminus",
             "request": "launch",
             "mainClass": "Mplusminus",

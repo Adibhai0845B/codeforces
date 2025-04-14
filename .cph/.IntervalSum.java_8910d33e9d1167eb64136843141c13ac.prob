@@ -1,0 +1,1 @@
+{"name":"Local: IntervalSum","url":"d:\\Codeforces\\IntervalSum.java","tests":[{"id":1744478686138,"input":"3 2\n1 2\n1 3\n2 3\n","output":""},{"id":1744478693499,"input":"3 1 \n1 2 \n2 3 \n3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\IntervalSum.java","group":"local","local":true}

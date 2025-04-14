@@ -1,0 +1,1 @@
+{"name":"Local: MinCostTermination","url":"d:\\Codeforces\\MinCostTermination.java","tests":[{"id":1743350546368,"input":"1\n3 2\n1 1 1\n1 2 3\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\MinCostTermination.java","group":"local","local":true}
