@@ -28,7 +28,7 @@ import static java.lang.System.out;
     static final long INF = (long) 1e18;
     static final int max = (int) 1e7 + 10;
     static final int N = (int) 2e5 + 5;
-    static List<Integer>[] a1;
+    static List<Integer>[] a;
     static int[] tree2;
     static int[] color;
     static int n;
@@ -42,37 +42,149 @@ import static java.lang.System.out;
     sc.close();
   }
 public static void func(FastInput sc) throws IOException{
-    int q = sc.nextInt();
-    while(q-->0){
+    int n = sc.nextInt();
+    int m = sc.nextInt();
+    char[][] a = new char[n][n];
+    for (int i = 0; i < n; i++) {
+        a[i]=sc.next().toCharArray();
+    }
+    boolean ans=false;
+    int ax=1;
+    int ay=2;
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (a[i][j]==a[j][i]) {
+                ans=true;
+        ax=i+1;
+          ay=j+1;
+            }
+        }
+    }
+    if(ans||m%2==1) {
+        out.println("YES");
+        for (int i=0;i<m;i++) {
+      if (i%2==0){
+          out.print(ax + " ");
+           }else{
+         out.print(ay + " ");
+  }
+    }
+        if (m % 2 == 0)
+            out.println(ax);
+        else
+            out.println(ay);
+       return;
+        }
+    int aax = 0, aay = 0, aaz = 0;
+    int[] have = new int[n + 1];
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i != j && a[i][j] == 'a') {
+                have[i + 1] = j + 1;
+            }
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) continue;
+            if (a[i][j] == 'a' && have[j + 1] != 0) {
+                aax = i + 1;
+                aay = j + 1;
+                aaz = have[j + 1];
+            }
+        }
+    }
+    if (aax == 0) {
+        out.println("NO");
+    } else {
+        out.println("YES");
+        if (m != 2) {
+            if ((m / 2) % 2 == 1) {
+                int tmp = aax;
+                aax = aay;
+                aay = tmp;
+            }
+            out.print(aay);
+            for (int i = 1; i <= m / 2; i++) {
+                if (i % 2 == 1)
+                    out.print(" " + aax);
+                else
+                    out.print(" " + aay);
+            }
 
-    }        }
+            if ((m / 2) % 2 == 1) {
+                int tmp = aax;
+                aax = aay;
+                aay = tmp;
+            }
+            for (int i = 1; i <= m / 2; i++) {
+                if (i%2==1){
+                    System.out.print(" " + aaz);
+                  }  else{
+                    System.out.print(" " + aay);
+                  }}
+            out.println();
+        } else {
+            out.println(aax + " " + aay + " " + aaz);
+        }
+    }
+}
+    public static boolean isPowerOf2(int n){
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+    public static void dfs(int node, ArrayList<ArrayList<Pair>> adj, boolean[] visited, int[] a, int prev, int index) {
+    visited[node] = true;
+
+    if (index != -1) {
+        if (a[index] == -1) {
+            a[index] = prev;
+        }
+    }
+
+    int nextPrev = (prev == 2) ? 3 : 2;
+
+    for (Pair nei : adj.get(node)) {
+        if (!visited[nei.first]) {
+            dfs(nei.first, adj, visited, a, nextPrev, nei.second);
+        }
+    }
+}
+
 public static boolean isPrime(int n) {
     if (n <= 1) return false;
     if (n == 2 || n == 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
-
     for (int i = 5; i * i <= n; i += 6) {
         if (n % i == 0 || n % (i + 2) == 0)
             return false;
     }
-
     return true;
 }
-
-public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a1, int color[]) {
+public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int color[]) {
         for (int i = 0; i < V; i++) {
             if (color[i] == -1) {
-                if (dfsBipartite(i, 0, color, a1) == false)
+                if (dfsBipartite(i, 0, color, a) == false)
                     return false;
             }
         }
         return true;
     }
-    private static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a1) {
+    public static long nCr(int n, int r) {
+        if (r > n) return 0;
+        if (r == 0 || r == n) return 1;
+        r = Math.min(r, n - r);
+        long result = 1;
+        for (int i = 0; i < r; i++) {
+            result *= (n - i);
+            result /= (i + 1);
+        }
+        return result;
+    }
+    private static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a) {
         color[node] = col;
-        for (int it : a1.get(node)) {
+        for (int it : a.get(node)) {
             if (color[it] == -1) {
-                if (dfsBipartite(it, 1 - col, color, a1) == false)
+                if (dfsBipartite(it, 1 - col, color, a) == false)
                     return false;
             } else if (color[it] == col) {
                 return false;
@@ -82,9 +194,9 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a1, int c
         return true;
     }
 
-    public  static int funct2(int uy, ArrayList<ArrayList<Integer>>a1,int[] color, int[] anta,int ev) {
+    public  static int funct2(int uy, ArrayList<ArrayList<Integer>>a,int[] color, int[] anta,int ev) {
         ArrayList<Integer> cher = new ArrayList<>();
-        for (int uyr:a1.get(uy)){int answ = funct2(uyr,a1,color,anta,ev);
+        for (int uyr:a.get(uy)){int answ = funct2(uyr,a,color,anta,ev);
             if (answ != -1) {
                 cher.add(answ);
             }
@@ -293,11 +405,10 @@ class Pair4 {
     }
 }
 class Pair {
-    int first, second;
-
+    int first;
+    int second;
     Pair(int first, int second) {
         this.first = first;
         this.second = second;
     }
-
 }
