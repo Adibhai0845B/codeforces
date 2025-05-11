@@ -1,68 +1,87 @@
-import java.io.*;
 import java.util.*;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.math.BigInteger;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.math.*;
+import static java.lang.System.console;
+import static java.lang.System.nanoTime;
+import static java.lang.System.out;
 public class TreeConstruction {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-
-        int t = Integer.parseInt(br.readLine()); // Number of test cases
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
         while (t-- > 0) {
-            String[] inputs = br.readLine().split(" ");
-            int n = Integer.parseInt(inputs[0]);
-            int d = Integer.parseInt(inputs[1]);
-            int l = Integer.parseInt(inputs[2]);
-
-            // Check if it's impossible to construct the tree
-            if (l > n || l == 1 || d < l - 1 || d > n - 1) {
-                sb.append("-1\n");
-                continue;
+            solve(sc);
+        }
+    }
+    static void solve(Scanner sc) {
+        ArrayList<Integer>[] a1 = new ArrayList[100002];
+        int n = sc.nextInt();
+        long[] v = new long[100002];
+        for (int i = 0; i <= n; i++) {
+            if (a1[i] == null) a1[i] = new ArrayList<>();
+            else a1[i].clear();
+        }
+        for (int i=1;i<=n;i++) {
+          v[i]=sc.nextLong();
+        }
+  char[] s = new char[n];  Arrays.fill(s, '0');
+        for (int i =0;i<n-1;i++) {
+            int u = sc.nextInt();int v1 = sc.nextInt();
+            if (v[u] == v[v1]) {
+         s[(int)v[u]-1] = '1';
             }
-
-            List<int[]> edges = new ArrayList<>();
-            int[] degree = new int[n + 1];
-            int currentNode = 1;
-
-            // Create the main path of length d
-            for (int i = 0; i < d; i++) {
-                edges.add(new int[]{currentNode, currentNode + 1});
-                degree[currentNode]++;
-                degree[currentNode + 1]++;
-                currentNode++;
-            }
-
-            int remainingLeaves = l; // Number of leaves needed
-            // Deduct leaves already on the main path
-            if (degree[1] == 1) remainingLeaves--;
-            if (degree[d + 1] == 1) remainingLeaves--;
-
-            // Add leaves to intermediate nodes
-            for (int i = 1; i <= d && remainingLeaves > 0; i++) {
-                while (degree[i] < 2 && remainingLeaves > 0 && currentNode < n) {
-                    edges.add(new int[]{i, ++currentNode});
-                    degree[i]++;
-                    degree[currentNode]++;
-                    remainingLeaves--;
-                }
-            }
-
-            // If leaves are not fulfilled, attach to the root
-            for (int i = d + 2; i <= n && remainingLeaves > 0; i++) {
-                edges.add(new int[]{1, i});
-                degree[1]++;
-                degree[i]++;
-                remainingLeaves--;
-            }
-
-            if (edges.size() != n - 1 || remainingLeaves > 0) {
-                sb.append("-1\n");
-            } else {
-                for (int[] edge : edges) {
-                    sb.append(edge[0]).append(" ").append(edge[1]).append("\n");
-                }
+            a1[u].add(v1);
+            a1[v1].add(u);
+        }
+  for(int i=1;i<=n;i++) {
+      HashMap<Long,Integer> h1 = new HashMap<>();
+            for(int j:a1[i]) {
+       h1.put(v[j],h1.getOrDefault(v[j], 0) + 1);
+                if (h1.get(v[j]) == 2) {
+          s[(int)v[j] - 1] = '1';
+         }
             }
         }
+System.out.println(s);
+    }
+}
+ class FastInput {
+    BufferedReader br;
+    StringTokenizer st;
 
-        System.out.print(sb.toString());
+    public FastInput() {
+        br = new BufferedReader(new InputStreamReader(System.in));
+    }
+
+    String next() throws IOException {
+        while (st == null || !st.hasMoreTokens()) {
+            st = new StringTokenizer(br.readLine());
+        }
+        return st.nextToken();
+    }
+
+    int nextInt() throws IOException {
+        return Integer.parseInt(next());
+    }
+
+    long nextLong() throws IOException {
+        return Long.parseLong(next());
+    }
+
+    double nextDouble() throws IOException {
+        return Double.parseDouble(next());
+    }
+
+    String nextLine() throws IOException {
+        return br.readLine();
+    }
+
+    public void close() throws IOException {
+        br.close();
     }
 }

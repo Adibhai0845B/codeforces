@@ -1,0 +1,1 @@
+{"name":"Local: PowerStation","url":"d:\\Codeforces\\PowerStation.java","tests":[{"id":1738336561093,"input":"2\n5 3\nabcde\nabc\n5 2\nabcbb\n-b\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\PowerStation.java","group":"local","local":true}

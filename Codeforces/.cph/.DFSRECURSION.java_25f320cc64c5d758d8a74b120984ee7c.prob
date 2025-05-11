@@ -1,0 +1,1 @@
+{"name":"Local: DFSRECURSION","url":"d:\\Codeforces\\DFSRECURSION.java","tests":[{"id":1742586407040,"input":"5 2\n1 1 0 1 1\n1 2\n2 3\n3 4\n4 5\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\DFSRECURSION.java","group":"local","local":true}

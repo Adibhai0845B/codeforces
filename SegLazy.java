@@ -29,7 +29,6 @@ public class SegLazy {
         }
         System.out.println(Arrays.toString(a));
     }
-    // for minimum
     public static  void build(int ind, int low,int high,int a[],long seg[]){
          if(low==high){
             seg[ind]=a[low];
@@ -37,9 +36,8 @@ public class SegLazy {
          int mid = (low+high)/2;
          build(2*ind+1,low,mid,a,seg);
          build(2*ind+2,mid+1,high,a,seg);
-         seg[ind] = Math.min(seg[ind*2+1],seg[2*ind+2]);
+         seg[ind] =seg[ind*2+1]+seg[2*ind+2];
     }
-        // for minimum
     public static  void update(int ind,int low,int high, int l ,int r,long seg[], int a[],long lazy[],int val){
      if(lazy[ind]!=0){
         seg[ind]+=lazy[ind];
@@ -65,7 +63,6 @@ public class SegLazy {
     update(2*ind+2,mid+1,high,l,r, seg,a,lazy,val);
        seg[ind] = Math.min(seg[2*ind+1],seg[2*ind+2]);   
 }
-    // for minimum
 public static  long query(int ind ,int low,int high , int l ,int r , long seg[],int a[],long lazy[]){
       if(lazy[ind]!=0){
         seg[ind] +=lazy[ind];

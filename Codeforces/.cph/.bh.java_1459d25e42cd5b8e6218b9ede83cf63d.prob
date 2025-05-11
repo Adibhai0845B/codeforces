@@ -1,0 +1,1 @@
+{"name":"Local: bh","url":"d:\\Codeforces\\bh.java","tests":[{"id":1729003272034,"input":"5 6\n1 2\n1 3\n2 3\n2 4\n3 4\n4 5\n","output":"2\n"},{"id":1729003306359,"input":"2\n3 2 3\n4 2 3","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\bh.java","group":"local","local":true}

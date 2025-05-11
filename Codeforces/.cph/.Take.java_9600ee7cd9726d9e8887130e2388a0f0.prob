@@ -1,0 +1,1 @@
+{"name":"Local: Take","url":"d:\\Codeforces\\Take.java","tests":[{"id":1719373314052,"input":"5\n3\n6 6 1\n1\n9\n6\n1 1 1 2 2 2\n2\n8 6\n6\n6 2 3 4 5 1\n","output":"1\n0\n3\n-1\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Take.java","group":"local","local":true}

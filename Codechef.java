@@ -12,109 +12,52 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.math.*;
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
 import static java.lang.System.console;
 import static java.lang.System.nanoTime;
 import static java.lang.System.out;
  public class Codechef{
-    private int V;
-    static long e,v;
-    static final int MAXN = 200005;
+   static final int max=(int)1e9 + 5;
     static final int MOD =998244353;
-    static int ans =0;
-    static final int see = 400005;
-    List<Integer> ranfirst = new ArrayList<>();
-    static double tr = 0;
-    List<Integer> pare = new ArrayList<>();
-    static final long INF = (long) 1e18;
-    static final int max = (int) 1e7 + 10;
-    static final int N = (int) 2e5 + 5;
-    static List<Integer>[] a;
-    static int[] tree2;
+    static ArrayList<Integer>viol;
     static int[] color;
-    static int n;
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)throws IOException {
         FastInput sc = new FastInput();
+   BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
           int t = sc.nextInt();
         //  int t = 1;
             while (t-- > 0) {
-          func(sc);
+          func(sc,bw);
         }
     sc.close();
-  }
-public static void func(FastInput sc) throws IOException{
-long xa = sc.nextLong();
-long n = sc.nextLong();
-long m = sc.nextLong();
-//mini
-long a=m;
-long b=n;
-long x = xa;
-long c = n;
-n = m;
-m =c;
-while(n>0||m>0){
-    if(x==0)break;
-  if(x%2!=0&&m>0){
-      x = (x/2);
-       m--;
+    bw.flush();
     }
-  else if(x%2==0&&n>0){
-     x=(x/2);   
-    n--;
-  }
- else if(x%2!=0&&n>0){
-    x = ((x/2)+1);
-    n--;
- }
- else if(x%2==0&&m>0){
-    x = (x/2);
-    m--;
- }
-}
-//max
-long h=xa;
-   while(a>0||b>0){
-    if(h==0)break;
-    if(h%2==0&&b>0){
-        b--;
-        h=(h/2);
-  }
-    if(h%2!=0&&a>0){
-         a--;
-         h=((h/2)+1);
+    public static void func(FastInput sc,BufferedWriter sout)throws IOException{
+    long l = sc.nextLong();
+    long r = sc.nextLong();
+   long max =0;
+   long in =0;
+    for(long i =l+1;i<r;i++){
+          long d = (l^i)+(r^i)+(l^r);
+          if(d>max){
+            max = d;
+            in =i;
+          }
     }
-    if(h%2!=0&&b>0){
-        h=(h/2);
-        b--;
+    sout.write(l+" "+in+" "+r);
+    sout.newLine();
     }
-    else if(h%2==0&&a>0){
-        h=(h/2);
-        a--;
-    }
- }
-   System.out.println(x+" "+h);
-}
-    public static boolean isPowerOf2(int n){
-        return n > 0 && (n & (n - 1)) == 0;
-    }
-    public static void dfs(int node, ArrayList<ArrayList<Pair>> adj, boolean[] visited, int[] a, int prev, int index) {
-    visited[node] = true;
-
-    if (index != -1) {
-        if (a[index] == -1) {
-            a[index] = prev;
+public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
+    vis[node] = 1;
+    if (node == find) return true;
+    for (int ne : a1.get(node)) {
+        if (vis[ne]==0) {
+            if (dfs(vis, ne, a1, find)) return true;
         }
     }
-
-    int nextPrev = (prev == 2) ? 3 : 2;
-
-    for (Pair nei : adj.get(node)) {
-        if (!visited[nei.first]) {
-            dfs(nei.first, adj, visited, a, nextPrev, nei.second);
-        }
-    }
+    return false;
 }
-
 public static boolean isPrime(int n) {
     if (n <= 1) return false;
     if (n == 2 || n == 3) return true;
@@ -134,6 +77,61 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         }
         return true;
     }
+    public static long modex(long x, long y, int m) {
+        long val = 1;
+        x %= m;
+        while (y > 0) {
+            if ((y & 1) == 1)
+                val=(val*x) % m;
+            y >>= 1;
+            x = (x*x) % m;
+        }
+        return val;
+    } 
+    private static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a) {
+        color[node] = col;
+        for (int it : a.get(node)) {
+            if (color[it] == -1) {
+                if (dfsBipartite(it, 1 - col, color, a) == false)
+                    return false;
+            } else if (color[it] == col) {
+            viol.add(node);
+                viol.add(it);
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static List<List<Integer>> graphcomplementbfs(int n,List<List<Integer>> adj) {
+        List<List<Integer>> complement = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            complement.add(new ArrayList<>());
+        }
+            boolean[] visited = new boolean[n];
+        for (int start = 0; start < n; start++) {
+            if (visited[start]) continue;
+    
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(start);
+            visited[start] = true;
+    
+            while (!queue.isEmpty()) {
+                int node = queue.poll();
+                    for (int i = 0; i < n; i++) {
+                    if (i != node && !visited[i] && !adj.get(node).contains(i)) {
+                        complement.get(node).add(i);
+                        complement.get(i).add(node); 
+                        visited[i] = true;
+                        queue.add(i);
+                    }
+                }
+            }
+        }
+    
+        return complement;
+    }
+    
     public static long nCr(int n, int r) {
         if (r > n) return 0;
         if (r == 0 || r == n) return 1;
@@ -145,25 +143,11 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         }
         return result;
     }
-    private static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a) {
-        color[node] = col;
-        for (int it : a.get(node)) {
-            if (color[it] == -1) {
-                if (dfsBipartite(it, 1 - col, color, a) == false)
-                    return false;
-            } else if (color[it] == col) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public  static int funct2(int uy, ArrayList<ArrayList<Integer>>a,int[] color, int[] anta,int ev) {
         ArrayList<Integer> cher = new ArrayList<>();
-        for (int uyr:a.get(uy)){int answ = funct2(uyr,a,color,anta,ev);
-            if (answ != -1) {
-                cher.add(answ);
+        for (int uyr:a.get(uy)){int countw = funct2(uyr,a,color,anta,ev);
+            if (countw != -1) {
+                cher.add(countw);
             }
         }
         ev++;
@@ -279,12 +263,10 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         }
         return low;
     }
-
     public static long upperbound(Long[] a, long vsear) {
         int left = 0;
         int right = a.length;
         long dotult = -1;
-
         while (left < right) {
             int mid = left + (right - left) / 2;
 
@@ -350,10 +332,8 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         }
     }
 }
-
 class Pair3 {
     int first, second, third;
-
     Pair3(int first, int second,int third) {
         this.first = first;
         this.second = second;

@@ -1,0 +1,1 @@
+{"name":"Local: ji","url":"d:\\Codeforces\\ji.java","tests":[{"id":1724588125007,"input":"3\n6 1\n12 10 14 11 8 3\n6 5\n7 2 727 10 12 13\n2 2\n1000000000 1\n","output":"1\n2\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\ji.java","group":"local","local":true}

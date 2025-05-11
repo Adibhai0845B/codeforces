@@ -1,0 +1,1 @@
+{"name":"Local: EscapeTheLoop","url":"d:\\Codeforces\\EscapeTheLoop.java","tests":[{"id":1743328951475,"input":"1\n6 2 4\n-1 1 1 3 3 2\n2 6 2 5 3 4\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\EscapeTheLoop.java","group":"local","local":true}

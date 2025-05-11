@@ -1,0 +1,1 @@
+{"name":"Local: Game","url":"d:\\Codeforces\\Game.java","tests":[{"id":1718990092135,"input":"4\n4\n2 3 3 2\n3\n1 5 2\n2\n0 0\n4\n1000000000 1000000000 1000000000 1000000000\n","output":"1\n2\n0\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Game.java","group":"local","local":true}

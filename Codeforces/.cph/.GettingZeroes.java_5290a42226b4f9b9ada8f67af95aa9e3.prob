@@ -1,0 +1,1 @@
+{"name":"Local: GettingZeroes","url":"d:\\Codeforces\\GettingZeroes.java","tests":[{"id":1728046324829,"input":"5 4\n1 2\n3 4\n5 4\n3 5\n","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\GettingZeroes.java","group":"local","local":true}

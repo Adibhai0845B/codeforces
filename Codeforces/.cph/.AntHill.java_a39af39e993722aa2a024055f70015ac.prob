@@ -1,0 +1,1 @@
+{"name":"Local: AntHill","url":"d:\\Codeforces\\AntHill.java","tests":[{"id":1731003998568,"input":"6\n2\n11\n0\n2\n01\n1\n4\n1101\n001\n6\n111110\n10000\n6\n010010\n11010\n8\n10010010\n0010010\n","output":"2\n6\n0\n4\n0\n1\n7148\n500000000\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\AntHill.java","group":"local","local":true}

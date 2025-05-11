@@ -1,0 +1,1 @@
+{"name":"Local: answer","url":"d:\\Codeforces\\answer.java","tests":[{"id":1720251364152,"input":"3 1","output":"-1\n"},{"id":1720251380517,"input":"4 7 \n","output":"aba"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\answer.java","group":"local","local":true}

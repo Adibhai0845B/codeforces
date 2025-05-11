@@ -1,0 +1,1 @@
+{"name":"Local: perm","url":"d:\\Codeforces\\perm.java","tests":[{"id":1729579790192,"input":"8\nABBA\nABA\nBAABA\nABB\nAAAAAAB\nBABA\nB\nAAA","output":"25"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\perm.java","group":"local","local":true}

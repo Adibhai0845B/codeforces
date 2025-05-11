@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GraphCycleFinder",
+            "request": "launch",
+            "mainClass": "GraphCycleFinder",
+            "projectName": "Codeforces_cf197a6e"
+        },
+        {
+            "type": "java",
+            "name": "Codechef",
+            "request": "launch",
+            "mainClass": "Codechef",
+            "projectName": "Codeforces_cf197a6e"
+        },
+        {
+            "type": "java",
+            "name": "DSU",
+            "request": "launch",
+            "mainClass": "DSU",
+            "projectName": "Codeforces_cf197a6e"
+        },
+        {
+            "type": "java",
             "name": "Circullarll",
             "request": "launch",
             "mainClass": "Circullarll",

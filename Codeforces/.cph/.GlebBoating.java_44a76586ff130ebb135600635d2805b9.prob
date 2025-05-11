@@ -1,0 +1,1 @@
+{"name":"Local: GlebBoating","url":"d:\\Codeforces\\GlebBoating.java","tests":[{"id":1742917689151,"input":"8\n9 6\n10 7\n24 2\n123456 777\n6 4\n99 6\n10 4\n99 4\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\GlebBoating.java","group":"local","local":true}

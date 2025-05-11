@@ -1,0 +1,1 @@
+{"name":"Local: Decrease","url":"d:\\Codeforces\\Decrease.java","tests":[{"id":1722496864452,"input":"3\ncab\n6\nabcd\n9\nx\n1\n","output":"abx"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Decrease.java","group":"local","local":true}

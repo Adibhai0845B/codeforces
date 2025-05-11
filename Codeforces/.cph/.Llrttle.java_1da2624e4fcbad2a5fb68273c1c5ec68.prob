@@ -1,0 +1,1 @@
+{"name":"Local: Llrttle","url":"d:\\Codeforces\\Llrttle.java","tests":[{"id":1720933345674,"input":"3\n1 2 3\n","output":"0"},{"id":1720933356475,"input":"3\n3 2 1\n","output":"2"},{"id":1720933364888,"input":"4\n7 4 1 47\n","output":"6\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\Llrttle.java","group":"local","local":true}

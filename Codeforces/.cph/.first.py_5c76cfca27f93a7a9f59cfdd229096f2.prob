@@ -1,0 +1,1 @@
+{"name":"Local: first","url":"d:\\Codeforces\\first.py","tests":[{"id":1742312677801,"input":"2\n2\n1 2\n3 4 \n5 6 \n7 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\first.py","group":"local","local":true}

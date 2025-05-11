@@ -1,0 +1,1 @@
+{"name":"Local: poip","url":"d:\\Codeforces\\poip.java","tests":[{"id":1719417498515,"input":"+-+-+\n","output":"1"},{"id":1719417510679,"input":"----","output":"4"},{"id":1719417813066,"input":"-++","output":"2"},{"id":1719417829143,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\poip.java","group":"local","local":true}

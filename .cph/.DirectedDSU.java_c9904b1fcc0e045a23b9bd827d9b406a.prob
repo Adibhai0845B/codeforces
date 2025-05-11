@@ -1,0 +1,1 @@
+{"name":"Local: DirectedDSU","url":"d:\\Codeforces\\DirectedDSU.java","tests":[{"id":1746816543634,"input":"4 5\n1 2\n2 3\n3 1\n1 4\n3 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\DirectedDSU.java","group":"local","local":true}

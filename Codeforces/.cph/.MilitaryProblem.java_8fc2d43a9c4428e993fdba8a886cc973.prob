@@ -1,0 +1,1 @@
+{"name":"Local: MilitaryProblem","url":"d:\\Codeforces\\MilitaryProblem.java","tests":[{"id":1740558831474,"input":"9 6\n1 1 1 3 5 3 5 7\n3 1\n1 5\n3 4\n7 3\n1 8\n1 9\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\MilitaryProblem.java","group":"local","local":true}

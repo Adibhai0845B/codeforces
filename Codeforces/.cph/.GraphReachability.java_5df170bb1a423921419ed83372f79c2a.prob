@@ -1,0 +1,1 @@
+{"name":"Local: GraphReachability","url":"d:\\Codeforces\\GraphReachability.java","tests":[{"id":1735544831468,"input":"7 5\n3 2 5 4\n0\n2 1 2\n1 1\n2 6 7\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\GraphReachability.java","group":"local","local":true}

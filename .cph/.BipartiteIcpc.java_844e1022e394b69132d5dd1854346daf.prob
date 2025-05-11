@@ -1,0 +1,1 @@
+{"name":"Local: BipartiteIcpc","url":"d:\\Codeforces\\BipartiteIcpc.java","tests":[{"id":1745866694682,"input":"3\n1 0\n2 1\n1 2\n4 3\n2 1\n3 2\n4 2\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codeforces\\BipartiteIcpc.java","group":"local","local":true}
