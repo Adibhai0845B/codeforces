@@ -6,17 +6,16 @@ int main(){
     while (t--) {
         int n, k;
         cin >> n >> k;
-
-        vector<int> vc(n, 0); // Result array initialized to 0
+        vector<int> vc(n, 0);
         vector<int> diff(n + 1, 0); 
         vector<pair<int, int>> intervals(k);
 
         for (int i = 0; i < k; i++) {
             int l, r, m;
             cin >> l >> r >> m;
-            l--; r--; // Convert to 0-based indexing
-            diff[l] += m;        // Start range addition
-            diff[r + 1] -= m;    // End range subtraction
+            l--; r--;
+            diff[l] += m;
+            diff[r + 1] -= m;
         }
         vector<int> active(n, 0);
         int current = 0;

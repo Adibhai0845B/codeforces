@@ -42,92 +42,57 @@ import static java.lang.System.out;
     sc.close();
   }
 public static void func(FastInput sc) throws IOException{
-    int n = sc.nextInt();
-    int m = sc.nextInt();
-    char[][] a = new char[n][n];
-    for (int i = 0; i < n; i++) {
-        a[i]=sc.next().toCharArray();
+long xa = sc.nextLong();
+long n = sc.nextLong();
+long m = sc.nextLong();
+//mini
+long a=m;
+long b=n;
+long x = xa;
+long c = n;
+n = m;
+m =c;
+while(n>0||m>0){
+    if(x==0)break;
+  if(x%2!=0&&m>0){
+      x = (x/2);
+       m--;
     }
-    boolean ans=false;
-    int ax=1;
-    int ay=2;
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (a[i][j]==a[j][i]) {
-                ans=true;
-        ax=i+1;
-          ay=j+1;
-            }
-        }
-    }
-    if(ans||m%2==1) {
-        out.println("YES");
-        for (int i=0;i<m;i++) {
-      if (i%2==0){
-          out.print(ax + " ");
-           }else{
-         out.print(ay + " ");
+  else if(x%2==0&&n>0){
+     x=(x/2);   
+    n--;
   }
+ else if(x%2!=0&&n>0){
+    x = ((x/2)+1);
+    n--;
+ }
+ else if(x%2==0&&m>0){
+    x = (x/2);
+    m--;
+ }
+}
+//max
+long h=xa;
+   while(a>0||b>0){
+    if(h==0)break;
+    if(h%2==0&&b>0){
+        b--;
+        h=(h/2);
+  }
+    if(h%2!=0&&a>0){
+         a--;
+         h=((h/2)+1);
     }
-        if (m % 2 == 0)
-            out.println(ax);
-        else
-            out.println(ay);
-       return;
-        }
-    int aax = 0, aay = 0, aaz = 0;
-    int[] have = new int[n + 1];
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i != j && a[i][j] == 'a') {
-                have[i + 1] = j + 1;
-            }
-        }
+    if(h%2!=0&&b>0){
+        h=(h/2);
+        b--;
     }
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == j) continue;
-            if (a[i][j] == 'a' && have[j + 1] != 0) {
-                aax = i + 1;
-                aay = j + 1;
-                aaz = have[j + 1];
-            }
-        }
+    else if(h%2==0&&a>0){
+        h=(h/2);
+        a--;
     }
-    if (aax == 0) {
-        out.println("NO");
-    } else {
-        out.println("YES");
-        if (m != 2) {
-            if ((m / 2) % 2 == 1) {
-                int tmp = aax;
-                aax = aay;
-                aay = tmp;
-            }
-            out.print(aay);
-            for (int i = 1; i <= m / 2; i++) {
-                if (i % 2 == 1)
-                    out.print(" " + aax);
-                else
-                    out.print(" " + aay);
-            }
-
-            if ((m / 2) % 2 == 1) {
-                int tmp = aax;
-                aax = aay;
-                aay = tmp;
-            }
-            for (int i = 1; i <= m / 2; i++) {
-                if (i%2==1){
-                    System.out.print(" " + aaz);
-                  }  else{
-                    System.out.print(" " + aay);
-                  }}
-            out.println();
-        } else {
-            out.println(aax + " " + aay + " " + aaz);
-        }
-    }
+ }
+   System.out.println(x+" "+h);
 }
     public static boolean isPowerOf2(int n){
         return n > 0 && (n & (n - 1)) == 0;
