@@ -41,7 +41,7 @@ import static java.lang.System.out;
     for(long i =l+1;i<r;i++){
           long d = (l^i)+(r^i)+(l^r);
           if(d>max){
-            max = d;
+            max = d; 
             in =i;
           }
     }
