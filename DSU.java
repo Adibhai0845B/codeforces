@@ -25,7 +25,7 @@ public class DSU {
             parent[x] = find(parent[x]);
         return parent[x];
     } 
-    public boolean union(int x, int y) {
+    public boolean union(int x,int y) {
         int px = find(x), py = find(y);
         if (px == py) return false;
         if (rank[px] < rank[py]) {

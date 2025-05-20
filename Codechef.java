@@ -1,9 +1,3 @@
-/*
- * AdiBhai0845R
- * AdiBhai0845R
- * AdiBhai0845R
- * AdiBhai0845R
- */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,36 +13,45 @@ import static java.lang.System.nanoTime;
 import static java.lang.System.out;
  public class Codechef{
    static final int max=(int)1e9 + 5;
-    static final int MOD =998244353;
+    static final int MOD = 1_000_000_007;
     static ArrayList<Integer>viol;
     static int[] color;
     public static void main(String[] args)throws IOException {
         FastInput sc = new FastInput();
    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-          int t = sc.nextInt();
-        //  int t = 1;
+        //  int t = sc.nextInt();
+          int t = 1;
             while (t-- > 0) {
-          func(sc,bw);
+          func(sc);
         }
     sc.close();
     bw.flush();
     }
-    public static void func(FastInput sc,BufferedWriter sout)throws IOException{
-    long l = sc.nextLong();
-    long r = sc.nextLong();
-   long max =0;
-   long in =0;
-    for(long i =l+1;i<r;i++){
-          long d = (l^i)+(r^i)+(l^r);
-          if(d>max){
-            max = d; 
-            in =i;
-          }
-    }
-    sout.write(l+" "+in+" "+r);
-    sout.newLine();
-    }
-public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
+    public static void func(FastInput sc)throws IOException{
+    int n=sc.nextInt();
+        int k =n/2;
+        int a[] = new int[n];
+        for(int i =0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+     int[][]dp=new int[n+1][(n/2) + 1];
+        for (int i = 0;i<=n;i++){
+            Arrays.fill(dp[i],Integer.MIN_VALUE);
+        }
+        for(int i =0;i<n;i++){
+            dp[i][0]=0;
+        }
+        for (int i=1;i<=n;i++) {
+            for (int j=0;j<=k;j++){
+                dp[i][j]=dp[i-1][j];
+                if (i>=2&&j>=1&&dp[i-2][j-1]!= Integer.MIN_VALUE) {
+                    dp[i][j]=Math.max(dp[i][j],(dp[i - 2][j - 1]+a[i - 1])%MOD);
+                }
+            }
+        }
+
+        System.out.println((dp[n][k]));
+    } public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
     vis[node] = 1;
     if (node == find) return true;
     for (int ne : a1.get(node)) {
