@@ -11,9 +11,11 @@ import java.io.OutputStreamWriter;
 import static java.lang.System.console;
 import static java.lang.System.nanoTime;
 import static java.lang.System.out;
+import static java.lang.System.setOut;
  public class Codechef{
    static final int max=(int)1e9 + 5;
     static final int MOD = 1_000_000_007;
+    static int cycles = -1;
     static ArrayList<Integer>viol;
     static int[] color;
     public static void main(String[] args)throws IOException {
@@ -28,18 +30,9 @@ import static java.lang.System.out;
     bw.flush();
     }
     public static void func(FastInput sc)throws IOException{
-    int n=sc.nextInt();
-    int x = sc.nextInt();
-    for(int i=0;i<x;i++){
-             System.out.print(i+" ");
+     
     }
-    for(int i =x+1;i<n;i++){
-        System.out.print(i+" ");
-    }
-    if(x<n){
-    System.out.print(x+" ");
-      }  System.out.println();
-} public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
+  public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
     vis[node] = 1;
     if (node == find) return true;
     for (int ne : a1.get(node)) {
@@ -49,7 +42,7 @@ import static java.lang.System.out;
     }
     return false;
 }
-public static boolean isPrime(int n) {
+public static boolean isjjime(int n) {
     if (n <= 1) return false;
     if (n == 2 || n == 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
@@ -79,7 +72,7 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         }
         return val;
     } 
-    private static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a) {
+    public static boolean dfsBipartite(int node, int col, int color[], ArrayList<ArrayList<Integer>> a) {
         color[node] = col;
         for (int it : a.get(node)) {
             if (color[it] == -1) {
@@ -202,7 +195,7 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
         return (n & (n - 1)) == 0;
     }
 
-  /*   public static boolean isPrime(int n) {
+  /*   public static boolean isjjime(int n) {
         if (n <= 1) {
             return false;
         }

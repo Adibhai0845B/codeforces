@@ -13,6 +13,7 @@ import static java.lang.System.out;
    static final int max=(int)1e9 + 5;
     static final int MOD =998244353;
     static ArrayList<Integer>viol;
+        static final long MAX = (long) 4e18;
     static int[] color;
     public static void main(String[] args)throws IOException {
         FastInput sc = new FastInput();
@@ -24,46 +25,38 @@ import static java.lang.System.out;
     sc.close();
     }
     public static void func(FastInput sc)throws IOException{
-        long gr = Long.MAX_VALUE;
-        int valt = 0;
-        int N = sc.nextInt();
-        int H = sc.nextInt();
-        int valu = 0;
-        for (int i=0;i<N;i++) {
-            int s = sc.nextInt();
-            int d = sc.nextInt();
-            if (s==1) valt = Math.max(valt,d);
-            else valu = Math.max(valu,d);
+   int a[] = new int[4];
+   for(int i =0;i<4;i++){
+     a[i] = sc.nextInt();
+   }
+        boolean cond1 = (a[0]<a[3]&&a[1]<=a[2]);
+        boolean cond2 = (a[0]>=a[3]&&a[1]<=a[2]);
+        boolean cond3 = (a[0]<a[3]&& a[1]>=a[2]+1);
+        boolean cond4 = (a[3]<=a[2]);
+        if(cond1){
+            System.out.println(a[1]<=a[0]?"Gellyfish" : "Flower");
+        } 
+        else if (cond2) {
+            System.out.println("Gellyfish");
+        } 
+        else if (cond3) {
+            System.out.println("Flower");
+        } 
+        else {
+            System.out.println(cond4 ? "Gellyfish" : "Flower");
         }
-        if (valu > 0) {
-     long attacks = (H + valu - 1)/valu;
-     long d = attacks*2;
-            gr = Math.min(gr,d);
-        }
-        if(valt>0) {
-            long c =H/valt+2;
-            for (int x = 0;x<= Math.min(1000000,c);x=x+x+1){
-        long jh = H-(long) x*valt;
-            if (jh<=0) {
-               gr = Math.min(gr, x);
-                  break;
-                } else if (valu>0){
-               long y = (jh+valu- 1) / valu;
-            gr =Math.min(gr, x + y * 2);
-                }
-            }
-        }
-        System.out.println(gr);
+
     }
-public static boolean dfs(int vis[], int node, ArrayList<ArrayList<Integer>> a1, int find) {
-    vis[node] = 1;
-    if (node == find) return true;
-    for (int ne : a1.get(node)) {
-        if (vis[ne]==0) {
-            if (dfs(vis, ne, a1, find)) return true;
+public static int dfs(int p,int a[][],String s){
+        if(a[p][0]==0&&a[p][1]==0)return 0;
+     int res=1000000;
+        if(a[p][0]!=0){
+            res = Math.min(res,dfs(a[p][0],a,s)+((s.charAt(p-1)=='L')?0:1));
         }
-    }
-    return false;
+        if(a[p][1]!=0){
+            res =Math.min(res,dfs(a[p][1],a,s)+((s.charAt(p-1)=='R')?0:1));
+        }
+     return res;
 }
 public static boolean isPrime(int n) {
     if (n <= 1) return false;
@@ -311,20 +304,30 @@ public static boolean isBipartite(int V, ArrayList<ArrayList<Integer>> a, int co
             br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        String next() throws IOException {
-            while (st == null || !st.hasMoreTokens()) {
-                st = new StringTokenizer(br.readLine());
-            }
-            return st.nextToken();
-        }
+     String next() throws IOException {
+    while (st == null || !st.hasMoreTokens()) {
+        String line = br.readLine();
+        if (line == null) return null; 
+        st = new StringTokenizer(line);
+    }
+    return st.nextToken();
+}
 
-        int nextInt() throws IOException {
-            return Integer.parseInt(next());
-        }
 
-        long nextLong() throws IOException {
-            return Long.parseLong(next());
-        }
+
+       int nextInt() throws IOException {
+    String token = next();
+    if (token == null) throw new NoSuchElementException("No more tokens available");
+    return Integer.parseInt(token);
+}
+
+
+       long nextLong() throws IOException {
+    String token = next();
+    if (token == null) throw new NoSuchElementException("No more tokens available");
+    return Long.parseLong(token);
+}
+
 
         double nextDouble() throws IOException {
             return Double.parseDouble(next());

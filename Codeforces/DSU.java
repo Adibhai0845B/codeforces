@@ -1,10 +1,11 @@
 import java.util.*;
 import java.io.*;
+
 public class DSU {
     private int[] parent, rank, size;
-    private int n, components;
+    private int components;
+
     public DSU(int n) {
-        this.n = n;
         parent = new int[n];
         rank = new int[n];
         size = new int[n];
@@ -15,6 +16,7 @@ public class DSU {
             size[i] = 1;
         }
     }
+
     public int find(int x) {
         if (parent[x] != x)
             parent[x] = find(parent[x]);
@@ -39,59 +41,52 @@ public class DSU {
         components--;
         return true;
     }
+
     public int getComponentCount() {
         return components;
     }
-    public void printComponentMembers() {
-        Map<Integer, List<Integer>> componentMap = new HashMap<>();
+
+    public int getComponentSize(int x) {
+        return size[find(x)];
+    }
+
+    public static void main(String args[]) throws IOException {
+        FastInput sc = new FastInput();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            int[] p = new int[n];
+            int[] d = new int[n];
+            DSU d1 = new DSU(n);
+
             for (int i = 0; i < n; i++) {
-            int root = find(i);
-            componentMap.computeIfAbsent(root, k -> new ArrayList<>()).add(i + 1);
-        }
-            PriorityQueue<List<Integer>> sortedComponents = new PriorityQueue<>(Comparator.comparingInt(List::size));
-        for (List<Integer> component : componentMap.values()) {
-            Collections.sort(component);
-            sortedComponents.offer(component);
-        }
-            while (!sortedComponents.isEmpty()) {
-              System.out.print(sortedComponents.size()+" ");
-            for (int node : sortedComponents.poll()) {
-                System.out.print(node + " ");
+                p[i] = sc.nextInt();
+                d1.union(p[i] - 1, i);
+            }
+
+            for (int i = 0; i < n; i++) {
+                d[i] = sc.nextInt() - 1;
+            }
+
+            HashSet<Integer> visited = new HashSet<>();
+            long ans = 0;
+            for (int i = 0; i < n; i++) {
+                int root = d1.find(d[i]);
+                if (!visited.contains(root)) {
+                    visited.add(root);
+                    ans += d1.getComponentSize(d[i]);
+                }
+                            System.out.print(ans+" ");
             }
             System.out.println();
         }
     }
-        public static void main(String args[]) throws IOException {
-        FastInput sc = new FastInput();
-       int n = sc.nextInt();
-       int m = sc.nextInt();
-       int a[][] = new int[m][3];
-       for(int i =0;i<m;i++){
-        a[i][0] = sc.nextInt()-1;
-        a[i][1] = sc.nextInt()-1;
-        a[i][2] = sc.nextInt();
-       }
-       Arrays.sort(a,Comparator.comparingInt(o->o[2]));
-       long answ =0;
-       DSU d1 = new DSU(n);
-       for(int i =0;i<m;i++){
-        if(d1.find(a[i][0])!=d1.find(a[i][1])){
-                d1.union(a[i][0], a[i][1]);
-           answ+=a[i][2];
-            }
-       }
-       for(int i =0;i<n;i++){
-        if(d1.getComponentCount()>1){
-            System.out.println("IMPOSSIBLE");
-        return;
-        }
-       }
-       System.out.println(answ);
-    }
-    }
- class FastInput{
+}
+
+class FastInput {
     BufferedReader br;
     StringTokenizer st;
+
     public FastInput() {
         br = new BufferedReader(new InputStreamReader(System.in));
     }
